@@ -7,5 +7,8 @@ namespace Dot.Library.Database
         public string Author {get; set;}
         public string Date {get; set;}
         public string Text {get; set;}
+
+        private Integer id;
+        private String data;
     }
 } 
