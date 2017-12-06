@@ -1,4 +1,5 @@
 using System;
+using Notification;
 
 namespace Dot.Library.Database
 {
@@ -13,8 +14,6 @@ namespace Dot.Library.Database
 
         public string Password {get; set;}
 
-        public Address Address {get; set;}
-
-
+        public Address Address {get; set;} 
     }
 }
