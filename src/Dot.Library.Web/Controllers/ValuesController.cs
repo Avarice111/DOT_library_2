@@ -41,4 +41,40 @@ namespace Dot.Library.Web.Controllers
         {
         }
     }
+
+    [Route("api/[controller=Notification]")]
+    public class NotificationsController: Controller
+    {
+        // GET api/values
+        [HttpGet]
+        public IEnumerable<Notification> GetValues()
+        {
+            return new Notification(){id=1;value=1};
+        }
+        
+        [Route("{id}")]
+        [HttpGet]
+        public string GetById(int id)
+        {
+           return new Notification(){id=1;value=1};
+        }
+
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody]string value)
+        {
+        }
+
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]string value)
+        {
+        }
+
+        // DELETE api/valuess/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+    }
 }
