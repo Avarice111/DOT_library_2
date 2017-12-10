@@ -1,5 +1,4 @@
 using System;
-using Notification;
 
 namespace Dot.Library.Database
 {
