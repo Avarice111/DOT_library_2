@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using Dot.Library.Database.Model;
+using System.Linq;
 
 namespace Dot.Library.Web.Controllers
 {
@@ -29,7 +30,7 @@ namespace Dot.Library.Web.Controllers
         [HttpGet]
         public IEnumerable<Category> GetAll() => _categories;
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetById")]
         public IActionResult GetById(long id)
         {
             var item = _categories.Find(t => t.ID == id);
@@ -48,8 +49,39 @@ namespace Dot.Library.Web.Controllers
                 return BadRequest();
             }
             _categories.Add(item);
-            return CreatedAtRoute(new {id = item.ID}, item);
+            return CreatedAtRoute("GetById",new {id = item.ID}, item);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody]Category category)
+        {
+            if(category == null || category.ID != id )
+            {
+                return BadRequest();
+            }
+            var wantedUser = _categories.FirstOrDefault(x => x.ID == id);
+            if (category == null)
+            {
+                
+            }
+            _categories[wantedUser.ID] = wantedUser;
+            return new NoContentResult();
+        }
+
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
+        {
+            var delete = _categories.FirstOrDefault(t => t.ID == id);
+            if(delete == null)
+            {
+                return NotFound();
+            }
+
+            _categories.RemoveAt(delete.ID);
+            return new NoContentResult();
+        }
+
       
     }
 }
