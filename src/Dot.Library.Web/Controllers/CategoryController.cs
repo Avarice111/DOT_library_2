@@ -12,17 +12,17 @@ namespace Dot.Library.Web.Controllers
         public List<Category> _categories = new List<Category>{
             new Category()
             {
-                ID=1,
+                Id=1,
                 Name="Programowanie",
             },
             new Category()
             {
-                ID=2,
+                Id=2,
                 Name="Chemia",
             },
             new Category()
             {
-                ID=3,
+                Id=3,
                 Name="Rolnictwo",
             }
         };
@@ -33,7 +33,7 @@ namespace Dot.Library.Web.Controllers
         [HttpGet("{id}", Name = "GetById")]
         public IActionResult GetById(long id)
         {
-            var item = _categories.Find(t => t.ID == id);
+            var item = _categories.Find(t => t.Id == id);
             if(item == null)
             {
                 return NotFound();
@@ -49,22 +49,22 @@ namespace Dot.Library.Web.Controllers
                 return BadRequest();
             }
             _categories.Add(item);
-            return CreatedAtRoute("GetById",new {id = item.ID}, item);
+            return CreatedAtRoute("GetById",new {id = item.Id}, item);
         }
 
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]Category category)
         {
-            if(category == null || category.ID != id )
+            if(category == null || category.Id != id )
             {
                 return BadRequest();
             }
-            var wantedUser = _categories.FirstOrDefault(x => x.ID == id);
+            var wantedUser = _categories.FirstOrDefault(x => x.Id == id);
             if (category == null)
             {
                 
             }
-            _categories[wantedUser.ID] = wantedUser;
+            _categories[wantedUser.Id] = wantedUser;
             return new NoContentResult();
         }
 
@@ -72,13 +72,13 @@ namespace Dot.Library.Web.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-            var delete = _categories.FirstOrDefault(t => t.ID == id);
+            var delete = _categories.FirstOrDefault(t => t.Id == id);
             if(delete == null)
             {
                 return NotFound();
             }
 
-            _categories.RemoveAt(delete.ID);
+            _categories.RemoveAt(delete.Id);
             return new NoContentResult();
         }
 

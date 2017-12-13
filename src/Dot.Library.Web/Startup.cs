@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using Dot.Library.Web.Models;
 
 namespace Dot.Library.Web
 {
@@ -24,6 +26,9 @@ namespace Dot.Library.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<LibraryContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("LibraryContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
