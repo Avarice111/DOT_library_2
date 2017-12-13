@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-
 namespace Dot.Library.Database.Model
 {
     public class Category
