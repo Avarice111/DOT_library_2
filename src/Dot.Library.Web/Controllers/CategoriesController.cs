@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Dot.Library.Database.Model;
 using Dot.Library.Web.Models;
+using Dot.Library.Web.DataContracts;
 
 namespace Dot.Library.Web.Controllers
 {
@@ -23,7 +24,7 @@ namespace Dot.Library.Web.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public IEnumerable<Category> GetCategory()
+        public IEnumerable<CategoryContract> GetCategory()
         {
             return _context.Category;
         }
@@ -91,7 +92,7 @@ namespace Dot.Library.Web.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.Category.Add(category);
+            //_context.Category.Add(category);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCategory", new { id = category.Id }, category);

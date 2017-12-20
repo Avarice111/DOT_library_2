@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Dot.Library.Web.Models;
+using Dot.Library.Web.Repository;
 
 namespace Dot.Library.Web
 {
@@ -29,6 +30,8 @@ namespace Dot.Library.Web
 
             services.AddDbContext<LibraryContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("LibraryContext")));
+
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
