@@ -3,82 +3,78 @@ using System;
 using System.Collections.Generic;
 using Dot.Library.Database.Model;
 using System.Linq;
+using Dot.Library.Web.Repository;
+using Dot.Library.Web.DataContracts;
+using AutoMapper;
 
 namespace Dot.Library.Web.Controllers
 {
     [Route("api/[controller]") ]
     public class CategoryController : Controller
     {
-        public List<Category> _categories = new List<Category>{
-            new Category()
-            {
-                Id=1,
-                Name="Programowanie",
-            },
-            new Category()
-            {
-                Id=2,
-                Name="Chemia",
-            },
-            new Category()
-            {
-                Id=3,
-                Name="Rolnictwo",
-            }
-        };
+
+        private readonly IMapper _mapper;
+        private readonly ICategoryRepository _repository;
+
+        public CategoryController(ICategoryRepository repository,IMapper mapper)
+        {
+            this._repository = repository;
+            this._mapper = mapper;
+        }
 
         [HttpGet]
-        public IEnumerable<Category> GetAll() => _categories;
+        public IEnumerable<CategoryDto> GetAll()
+        {
+            var usersList = _repository.GetAll();
+
+            var users = _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryDto> >(usersList);
+
+            return users;
+        }
 
         [HttpGet("{id}", Name = "GetById")]
         public IActionResult GetById(long id)
         {
-            var item = _categories.Find(t => t.Id == id);
+            var item = _repository.Get(id);
+            var model = _mapper.Map<Category, CategoryDto>(item);
             if(item == null)
             {
                 return NotFound();
             }
-            return new ObjectResult(item);
+            return new ObjectResult(model);
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Category item)
+        public IActionResult Create([FromBody] CategoryDto item)
         {
-            if(item==null)
+            var model = _mapper.Map<CategoryDto, Category>(item);
+            if (model==null)
             {
                 return BadRequest();
             }
-            _categories.Add(item);
+            
+            _repository.Insert(model);
             return CreatedAtRoute("GetById",new {id = item.Id}, item);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]Category category)
+        public IActionResult Put(int id, [FromBody]CategoryDto category)
         {
+            var model = _mapper.Map<CategoryDto,Category>(category);
             if(category == null || category.Id != id )
             {
                 return BadRequest();
             }
-            var wantedUser = _categories.FirstOrDefault(x => x.Id == id);
-            if (category == null)
-            {
-                
-            }
-            _categories[wantedUser.Id] = wantedUser;
+            _repository.Update(model);
             return new NoContentResult();
         }
 
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
+        public IActionResult Delete(CategoryDto category)
         {
-            var delete = _categories.FirstOrDefault(t => t.Id == id);
-            if(delete == null)
-            {
-                return NotFound();
-            }
-
-            _categories.RemoveAt(delete.Id);
+            var model = _mapper.Map<CategoryDto, Category>(category);
+            _repository.Delete(model);
             return new NoContentResult();
         }
 

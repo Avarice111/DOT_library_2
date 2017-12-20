@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Dot.Library.Database.Model;
 using Dot.Library.Web.Models;
+using AutoMapper;
 
 namespace Dot.Library.Web.Controllers
 {
@@ -14,11 +15,13 @@ namespace Dot.Library.Web.Controllers
     [Route("api/Categories")]
     public class CategoriesController : Controller
     {
+
         private readonly LibraryContext _context;
 
         public CategoriesController(LibraryContext context)
         {
             _context = context;
+
         }
 
         // GET: api/Categories
