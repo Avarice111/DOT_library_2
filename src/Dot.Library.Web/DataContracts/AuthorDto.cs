@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Dot.Library.Database;
 
-namespace Dot.Library.Database
+namespace Dot.Library.Web.DataContracts
 {
-    public class Author
+    public class AuthorDto
+      
     {
         public int Id { get; set; }
 

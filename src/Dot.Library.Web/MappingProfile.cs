@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Dot.Library.Database;
 using Dot.Library.Database.Model;
 using Dot.Library.Web.DataContracts;
 using System;
@@ -14,6 +15,8 @@ namespace Dot.Library.Web
         {
             CreateMap<Category, CategoryDto>();
             CreateMap<CategoryDto, Category>();
+            CreateMap<Author, AuthorDto>();
+            CreateMap<AuthorDto, Author>();
 
         }
     }
