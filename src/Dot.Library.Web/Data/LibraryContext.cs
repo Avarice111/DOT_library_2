@@ -15,6 +15,6 @@ namespace Dot.Library.Web.Models
         {
         }
 
-        public DbSet<CategoryContract> Category { get; set; }
+        public DbSet<Category> Category { get; set; }
     }
 }

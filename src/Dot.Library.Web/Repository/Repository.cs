@@ -40,6 +40,7 @@ namespace Dot.Library.Web.Repository
 
         public void Update(T entity)
         {
+            _context.Set<T>().Attach(entity);
             _context.Entry<T>(entity).State = EntityState.Modified;
             _context.SaveChanges();
         }

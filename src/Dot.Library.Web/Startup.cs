@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Dot.Library.Web.Models;
 using Dot.Library.Web.Repository;
+using AutoMapper;
 
 namespace Dot.Library.Web
 {
@@ -26,6 +27,7 @@ namespace Dot.Library.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(x => x.AddProfile(new MappingProfile()));
             services.AddMvc();
 
             services.AddDbContext<LibraryContext>(options =>

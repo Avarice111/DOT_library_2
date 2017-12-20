@@ -1,4 +1,5 @@
-﻿using Dot.Library.Web.DataContracts;
+﻿using Dot.Library.Database.Model;
+using Dot.Library.Web.DataContracts;
 using Dot.Library.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -7,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Dot.Library.Web.Repository
 {
-    public class CategoryRepository : Repository<CategoryContract>, ICategoryRepository
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
   
 
         public CategoryRepository(LibraryContext context) : base(context)
         {
         }
-        public IEnumerable<CategoryContract> SearchByCategory(string name)
+        public IEnumerable<Category> SearchByCategory(string name)
         {
-            yield return _context.Set<CategoryContract>().Find(name);
+            yield return _context.Set<Category>().Find(name);
         }
     }
 }
