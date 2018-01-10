@@ -33,5 +33,20 @@ namespace Dot.Library.Web.Controllers
                 Title = book.Title
             }));
         }
+
+        [HttpPost]
+        [Consumes("application/json")]
+        public IActionResult AddBook([FromBody]BookSummaryDto book)
+        {
+            _libraryContext.Books.Add(new Database.Book
+            {
+                Availability=true,
+                Title = book.Title,
+                Cover = book.ImgUrl
+            });
+            _libraryContext.SaveChanges();
+            return NoContent();
+        }
+
     }
 }
