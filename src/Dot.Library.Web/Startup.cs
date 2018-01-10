@@ -51,7 +51,7 @@ namespace Dot.Library.Web
                     .AllowAnyOrigin()
                     .Build();
             });
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
