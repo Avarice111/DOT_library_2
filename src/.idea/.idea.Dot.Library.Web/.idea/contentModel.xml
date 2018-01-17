@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="Dot.Library.Database" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Dot.Library.Database.csproj" t="IncludeRecursive" />
+        <e p="Model" t="Include">
+          <e p="Address.cs" t="Include" />
+          <e p="Author.cs" t="Include" />
+          <e p="Book.cs" t="Include" />
+          <e p="Category.cs" t="Include" />
+          <e p="Message.cs" t="Include" />
+          <e p="Order.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="Dot.Library.Database.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Dot.Library.Web" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="BooksController.cs" t="Include" />
+          <e p="CategoriesController.cs" t="Include" />
+          <e p="CategoryController.cs" t="Include" />
+          <e p="MessageController.cs" t="Include" />
+        </e>
+        <e p="Data" t="Include">
+          <e p="LibraryContext.cs" t="Include" />
+        </e>
+        <e p="DataContracts" t="Include">
+          <e p="BookSummaryDto.cs" t="Include" />
+          <e p="CategoryDto.cs" t="Include" />
+          <e p="MessageDto.cs" t="Include" />
+        </e>
+        <e p="Dot.Library.Web.csproj" t="IncludeRecursive" />
+        <e p="MappingProfile.cs" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="20171213150445_init_database_with_categories_entity.cs" t="Include" />
+          <e p="20171213150445_init_database_with_categories_entity.Designer.cs" t="Include" />
+          <e p="20171213150639_category_ID_to_Id.cs" t="Include" />
+          <e p="20171213150639_category_ID_to_Id.Designer.cs" t="Include" />
+          <e p="20180110153737_books_authors.cs" t="Include" />
+          <e p="20180110153737_books_authors.Designer.cs" t="Include" />
+          <e p="20180116195226_message.cs" t="Include" />
+          <e p="20180116195226_message.Designer.cs" t="Include" />
+          <e p="LibraryContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="Dot.Library.Web.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Repository" t="Include">
+          <e p="CategoryRepository.cs" t="Include" />
+          <e p="ICategoryRepository.cs" t="Include" />
+          <e p="IMessageRepository.cs" t="Include" />
+          <e p="IRepository.cs" t="Include" />
+          <e p="MessageRepository.cs" t="Include" />
+          <e p="Repository.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="Views" t="Include">
+          <e p="Shared" t="Include">
+            <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+          </e>
+        </e>
+        <e p="wwwroot" t="Include" />
+      </e>
+      <e p="Dot.Library.Web.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2017.2/resharper-host/local/Transient/ReSharperHost/v10/SolutionCaches/_Dot.Library.Web.933163761.00" t="ExcludeRecursive" />
+  </component>
+</project>
