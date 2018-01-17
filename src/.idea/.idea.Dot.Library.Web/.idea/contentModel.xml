@@ -11,6 +11,7 @@
           <e p="Book.cs" t="Include" />
           <e p="Category.cs" t="Include" />
           <e p="Message.cs" t="Include" />
+          <e p="Notification.cs" t="Include" />
           <e p="Order.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
@@ -31,6 +32,7 @@
           <e p="CategoriesController.cs" t="Include" />
           <e p="CategoryController.cs" t="Include" />
           <e p="MessageController.cs" t="Include" />
+          <e p="NotificationsController.cs" t="Include" />
         </e>
         <e p="Data" t="Include">
           <e p="LibraryContext.cs" t="Include" />
@@ -39,6 +41,7 @@
           <e p="BookSummaryDto.cs" t="Include" />
           <e p="CategoryDto.cs" t="Include" />
           <e p="MessageDto.cs" t="Include" />
+          <e p="NotificationDto.cs" t="Include" />
         </e>
         <e p="Dot.Library.Web.csproj" t="IncludeRecursive" />
         <e p="MappingProfile.cs" t="Include" />
@@ -68,8 +71,10 @@
           <e p="CategoryRepository.cs" t="Include" />
           <e p="ICategoryRepository.cs" t="Include" />
           <e p="IMessageRepository.cs" t="Include" />
+          <e p="INotificationRepository.cs" t="Include" />
           <e p="IRepository.cs" t="Include" />
           <e p="MessageRepository.cs" t="Include" />
+          <e p="NotificationRepository.cs" t="Include" />
           <e p="Repository.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
