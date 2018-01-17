@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Dot.Library.Database;
 using Dot.Library.Database.Model;
 using Dot.Library.Web.DataContracts;
 using System;
@@ -13,7 +14,19 @@ namespace Dot.Library.Web
         public MappingProfile()
         {
             CreateMap<Category, CategoryDto>();
-            CreateMap<CategoryDto, Category>();
+            CreateMap<CategoryDto, Category>()
+                   .ForMember(dest => dest.Name,
+                           opts => opts.MapFrom(
+                               src => string.Format("{0}", src.ParentCategory)
+                               ));
+
+            CreateMap<MessageDto, Message>()
+                .ForMember(dest => dest.User,
+                           opts => opts.MapFrom(
+                               src => string.Format("{0} {1}", src.FirstName,
+                                    src.LastName)
+                               ));
+            CreateMap<Message, MessageDto>();
 
         }
     }
