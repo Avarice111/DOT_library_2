@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dot.Library.Database;
 
 namespace Dot.Library.Web.Repository
 {
@@ -15,9 +16,9 @@ namespace Dot.Library.Web.Repository
         public OrderRepository(LibraryContext context) : base(context)
         {
         }
-        public IEnumerable<Order> SearchByUser(string name)
+        public IEnumerable<Order> SearchByUser(long id)
         {
-            yield return _context.Set<Order>().Find(name);
+            yield return _context.Set<Order>().Find(id);
         }
     }
 }

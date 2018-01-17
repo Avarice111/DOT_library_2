@@ -9,7 +9,7 @@ namespace Dot.Library.Web.DataContracts
     {
         public int OrderId { get; set; }
         public DateTime Date {get; set;}
-        public string User { get; set; }
+        public long userId { get; set; }
         public List<BookSummaryDto> Books {get; set;}
     }
 }

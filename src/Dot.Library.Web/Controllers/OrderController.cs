@@ -24,14 +24,24 @@ namespace Dot.Library.Web.Controllers
         }
         
         [HttpGet("id", Name="GetOrder")]
+        public IActionResult getOrderById(long id)
         {
             var item = _repository.Get(id);
-            var model = _mapper.Map<Order, OrderDto>(item);
+           // var model = _mapper.Map<Order, OrderDto>(item);
             if(item==null)
             {
                 return NotFound();
             }
-            return new JsonResult(model);           
+            
+            return Json(
+                new OrderDto()
+                {
+                    OrderId = item.OrderId,
+                    Books = (List<BookSummaryDto>) item.Books.Select(book => new BookSummaryDto(){Id = book.BookId,ImgUrl = book.Cover,Isbn = 1,Title = book.Title}),
+                    Date = item.Date,
+                    userId = item.User.ID
+                }
+                );           
         }
          
     }
