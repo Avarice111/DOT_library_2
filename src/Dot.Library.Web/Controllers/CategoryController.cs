@@ -9,6 +9,7 @@ using AutoMapper;
 
 namespace Dot.Library.Web.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]") ]
     public class CategoryController : Controller
     {
