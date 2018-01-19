@@ -95,11 +95,11 @@ namespace Dot.Library.Web.Migrations
 
                     b.Property<string>("Text");
 
-                    b.Property<int?>("UserID");
+                    b.Property<int?>("UserId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Message");
                 });
@@ -122,7 +122,7 @@ namespace Dot.Library.Web.Migrations
 
             modelBuilder.Entity("Dot.Library.Database.User", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int?>("AddressId");
@@ -135,7 +135,7 @@ namespace Dot.Library.Web.Migrations
 
                     b.Property<string>("Password");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("AddressId");
 
@@ -157,7 +157,7 @@ namespace Dot.Library.Web.Migrations
                 {
                     b.HasOne("Dot.Library.Database.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserID");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Dot.Library.Database.Model.Category", b =>
