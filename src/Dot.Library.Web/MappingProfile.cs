@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Dot.Library.Web
 {
-    public class MappingProfile : Profile 
+    public class MappingProfile : Profile
     {
         public MappingProfile()
         {
@@ -27,6 +27,13 @@ namespace Dot.Library.Web
                                     src.LastName)
                                ));
             CreateMap<Message, MessageDto>();
+            CreateMap<UserDto, User>()
+                .ForMember(dest => dest.Address,
+                           opts => opts.MapFrom(
+                               src => string.Format("{0}", src.Street)
+                               ));
+            CreateMap<User, UserDto>();
+
 
         }
     }
